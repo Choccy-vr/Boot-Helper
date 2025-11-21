@@ -1,2 +1,3 @@
-# Boot-Helper
-A helper to download OSes and lauch QEMU
+# boot_helper
+
+A new Flutter project.
