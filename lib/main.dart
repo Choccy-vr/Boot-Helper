@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'theme/terminal_theme.dart';
+import 'pages/home_page.dart';
+import 'misc/logger.dart';
 
 void main() {
+  AppLogger.init();
   runApp(const MainApp());
 }
 
@@ -9,12 +13,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return MaterialApp(
+      title: 'Boot Helper',
+      theme: buildTerminalTheme(),
+      debugShowCheckedModeBanner: false,
+      home: const HomePage(),
     );
   }
 }

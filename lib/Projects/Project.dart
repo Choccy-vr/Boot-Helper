@@ -15,6 +15,7 @@ class Project {
   double timeDevlogs;
   String isoUrl;
   String qemuCMD;
+  String architecture;
   int coinsEarned;
   //not in db
   String readableTime;
@@ -39,6 +40,7 @@ class Project {
     required this.time,
     this.isoUrl = '',
     this.qemuCMD = '',
+    this.architecture = 'x86_64',
     this.coinsEarned = 0,
   });
 
@@ -64,6 +66,7 @@ class Project {
       time: 0.0,
       isoUrl: row['ISO_url'] ?? '',
       qemuCMD: row['qemu_cmd'] ?? '',
+      architecture: row['architecture'] ?? 'x86_64',
       coinsEarned: row['coins_earned'] ?? 0,
     );
   }
@@ -80,9 +83,10 @@ class Project {
     bool? reviewed,
     List<String>? hackatimeProjects,
     String? owner,
-    double? timeDevlogs,
+    String? timeDevlogs,
     String? isoUrl,
     String? qemuCMD,
+    String? architecture,
     int? coinsEarned,
   }) {
     final map = <String, dynamic>{};
@@ -104,6 +108,7 @@ class Project {
     if (timeDevlogs != null) map['total_time_devlogs'] = timeDevlogs;
     if (isoUrl != null) map['ISO_url'] = isoUrl;
     if (qemuCMD != null) map['qemu_cmd'] = qemuCMD;
+    if (architecture != null) map['architecture'] = architecture;
     if (coinsEarned != null) map['coins_earned'] = coinsEarned;
     return map;
   }
